@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axiosClient, { AxiosClient } from './utils/axios';
+import Header from './features/header';
+import Form from './features/form';
+import Result from './components/result/result';
+import Layout from './components/Layout';
 
 function App() {
+  const handleSampleApiCall = async () => {
+    const response = await axiosClient.get(
+      '/weather?q=London&appid=8f6b7b7b0b0b0b0b0b0b0b0b0b0b0b0b'
+    );
+    console.log(response.data);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Header />
+      <Form />
+      <Result />
+    </Layout>
   );
 }
 
