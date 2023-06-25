@@ -40,6 +40,11 @@ const Form = () => {
       'Dubai',
       'Dhaka',
       'New Work',
+      'Los Angeles',
+      'Chicago',
+      'Houston',
+      'Phoenix',
+      'Philadelphia',
     ];
 
     // Filter the mocked suggestions based on the search value

@@ -19,53 +19,34 @@ const Result = () => {
                 src={`https://openweathermap.org/img/wn/${weatherData?.weather[0]?.icon}.png`}
                 alt='weather icon'
               />
-              <div>
-                <span>
-                  {UtilityHelper.convertToCelsius(weatherData?.main?.temp)}
-                </span>
-                <span>&deg;C</span>
-              </div>
             </div>
             <div className={styles.weatherInfo}>
-              <div>
-                <span>{weatherData?.weather[0]?.main}</span>
-                <br />
-                <span>
-                  Feels like{' '}
-                  {UtilityHelper.convertToCelsius(
+              <div className={styles.item}>
+                <p>Description: </p>
+                <p>{weatherData?.weather[0]?.description}</p>
+              </div>
+              <div className={styles.item}>
+                <p>Current temp:</p>
+                <p>
+                  {UtilityHelper.convertToFahrenheit(weatherData?.main?.temp)}
+                  &deg;F
+                </p>
+              </div>
+              <div className={styles.item}>
+                <p>Feels like:</p>
+                <p>
+                  {UtilityHelper.convertToFahrenheit(
                     weatherData?.main?.feels_like
                   )}
-                  &deg;C
-                </span>
+                  &deg;F
+                </p>
               </div>
-
-              <div>
-                <span>Min</span>
-                <span>
-                  {UtilityHelper.convertToCelsius(weatherData?.main?.temp_min)}
-                  &deg;C
-                </span>
-              </div>
-
-              <div>
-                <span>Max</span>
-                <span>
-                  {UtilityHelper.convertToCelsius(weatherData?.main?.temp_min)}
-                  &deg;C
-                </span>
-              </div>
-
-              <div>
-                <span>Humidity</span>
-                <span>{weatherData?.main?.humidity}%</span>
-              </div>
-
-              <div>
-                <span>Wind</span>
-                <span>
+              <div className={styles.item}>
+                <p>Wind speed:</p>
+                <p>
                   {UtilityHelper.convertToKmPerHour(weatherData?.wind?.speed)}
                   km/h
-                </span>
+                </p>
               </div>
             </div>
           </div>
